@@ -24,3 +24,14 @@ delete from Employee
 
 --fetching all the column meta data of a table
 exec sp_columns vintageproducts
+
+/*
+	Rename an existing column
+*/
+EXEC sp_rename 'dbo.VintageProducts.RegionId', 'NestedRegionId', 'COLUMN';
+
+/*
+	Change the data type of an existing column
+*/
+ALTER TABLE vintageproducts
+ALTER COLUMN Vintage int;
