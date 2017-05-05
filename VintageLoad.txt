@@ -1,0 +1,66 @@
+1) Load all the records from worksheet "Vintage Products" of workbook "Wine Searcher - All US Products (11-16).xlsx" into the table VintageProducts
+Follow the std Import data steps for loading Vintage Products
+
+2) Delete all the rows from VintageProducts where Vintage is null, Grape is null OR N/A, pshortdesc is null , vineyard_ID is null
+delete from vintageproducts where vineyard_id is null OR vintage is null OR region is null OR pshortdesc is null OR grape Like 'N/A' 
+
+3) Add a primary column to the VintageProducts table - Optional
+alter table [dbo].[VintageProducts]
+Add vintageProductId int identity (1, 1)
+alter table [dbo].[VintageProducts]
+Add Constraint PK_VINTAGEPRODUCTPK primary key clustered (vintageProductId)
+3) Add columns VarietalId and RegionId to table VintageProducts
+alter table VintageProducts 
+Add NestedRegionId int,
+VarietalId int;
+
+4) Load data into VarietalId and RegionId from RegionMapping and VarietalMapping tables
+update VintageProducts set RegionId = RM.[nestedRegionId]
+from VintageProducts VP 
+Join [dbo].[RegionMapping] RM ON RM.[WSRegion] = VP.[Region]
+
+update VintageProducts set varietalId = VM.Varietal_id
+from VintageProducts VP 
+Join [dbo].[VarietalMapping] VM ON VM.[WSVarietal] = VP.[Grape]
+6) delete all records from wsproduct
+delete from wsproduct
+
+7) Add columns nestedregionid, ID and varietalid to table wsproduct
+alter table wsproduct 
+Add WSProductId int,
+NestedRegionId int,
+VarietalId int,
+pshortdesc varchar (80);
+
+8) Join ProdProduct and VintageProducts to get matching records for matching columns - VarietalId, NestedRegionId, Vineyard_Id, pshortdesc and non-matching columns - vintage
+and insert into wsproduct
+insert into wsproduct ([Vintage], WSProductId, [producerID], [ProducerName], [ProducerAddress], [ProducerWebsite], [ProducerCoodinates], [WineName], [Grape], [Popularity], [AveragePrice],
+[Region], [CompetitorCount], [UniqueID], [winecom_product_id], [vineyardid], [NestedRegionId], [VarietalId], pshortdesc)
+SELECT 
+distinct
+(VP.Vintage), [VintageProductId], VP.producerID, VP.[ProducerName], VP.[ProducerAddress], VP.[ProducerWebsite], VP.[ProducerCoodinates], VP.[WineName], VP.[Grape], VP.[Popularity], VP.[AveragePrice],
+VP.[Region], VP.[CompetitorCount], VP.[UniqueID], VP.[ID], VP.[vineyard_ID], VP.[NestedRegionId], VP.[VarietalId], VP.pshortdesc
+FROM SS_VintageProducts_USA VP
+inner JOIN ProdProduct PP 
+ON VP.[NestedRegionId] = PP.NestedRegionId
+AND VP.[VarietalId] = PP.varietal_id
+AND VP.[pshortdesc] = PP.pshortdesc
+AND VP.[vineyard_ID] = PP.[vineyard_ID]
+where VP.vintage <> PP.vintage
+
+
+9) Delete all those records that match with existing ProdProduct
+delete from wsproduct where WSProductId in 
+(select WS.WSProductId from wsproduct WS, ProdProduct PP 
+where (PP.vintage = WS.vintage) 
+AND WS.[NestedRegionId] = PP.NestedRegionId
+AND WS.[VarietalId] = PP.varietal_id
+AND WS.[pshortdesc] = PP.pshortdesc
+AND WS.[vineyardid] = PP.[vineyard_ID])
+10) Verify the results
+select * from ProdProduct PP, wsproduct WS
+where WS.Vintage = PP.vintage
+AND WS.[NestedRegionId] = PP.[NestedRegionId]
+AND WS.[VarietalId] = PP.[Varietal_Id]
+AND WS.[pshortdesc] = PP.[pshortdesc]
+AND WS.[vineyardid] = PP.[vineyard_id]
