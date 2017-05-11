@@ -37,6 +37,7 @@ Create table tblChildren
 	childFN varchar (50) not null,
 	childLN varchar (50) not null,
 	childDOB smalldatetime,
+	childAge as (DateDiff (YYYY, childDOB, getDate())),
 	parent int references tblContacts (CustomerId)
 );
 
@@ -61,8 +62,8 @@ insert into tblContacts values (6, 'Ms', 'Mary', '', 'Fernandez', '510-512-5455'
 
 
 
-insert into tblChildren values (1, 'Joe', 'Timothy', '01/10/2009', 3);
-insert into tblChildren values (2, 'Josh', 'Timothy', '01/10/2009', 3);
-insert into tblChildren values (3, 'Adam', 'Timothy', '06/29/2002', 3);
-insert into tblChildren values (4, 'Abby', 'Mathew', '10/10/1999', 6);
-insert into tblChildren values (5, 'Logan', 'Timothy', '11/23/2005', 6);
+insert into tblChildren (ChildId, childFN, childLN, childDOB, parent) values (1, 'Joe', 'Timothy', '01/10/2009', 3);
+insert into tblChildren (ChildId, childFN, childLN, childDOB, parent) values (2, 'Josh', 'Timothy', '01/10/2009', 3);
+insert into tblChildren (ChildId, childFN, childLN, childDOB, parent) values (3, 'Adam', 'Timothy', '06/29/2002', 3);
+insert into tblChildren (ChildId, childFN, childLN, childDOB, parent) values  (4, 'Abby', 'Mathew', '10/10/1999', 6);
+insert into tblChildren(ChildId, childFN, childLN, childDOB, parent) values (5, 'Logan', 'Timothy', '11/23/2005', 6);
