@@ -24,21 +24,24 @@ Create table Publisher
 	zip int
 );
 
-Create table Book
-(
-	isbn_id int CONSTRAINT PK_ISBN_ID primary key clustered not null,
-	title varchar (50),
-	type char (2),
-	pub_id int references Publisher (pub_id),
-	price decimal(10, 2),
-	advance decimal(10, 2),
-	ytd_sales decimal(10, 2),
-	pubdate smalldatetime
-);
+CREATE TABLE  book (
+  isbn varchar(13)  NOT NULL constraint PK_ISBN primary key clustered,
+  title varchar(80)  NOT NULL,
+  type varchar(12) ,
+  pub_id int references Publisher (pub_id) ,
+  price decimal(9,2) ,
+  advance decimal(9,2) ,
+  ytd_sales smallint ,
+  pubdate smalldatetime   
+) ;
 
-INSERT INTO publisher (pub_id, name, address, city, state) VALUES(2, 'Binder and Smith', '2 2nd Ave.', 'New York', 'NY');
-INSERT INTO publisher (pub_id, name, address, city, state) VALUES(3, 'All Techo Books', '3 3rd Dr.', 'Cupertino', 'CA');
-INSERT INTO publisher (pub_id, name, address, city, state) VALUES(1, 'Sunshine Publishers', '1 1st St', 'Berkeley', 'CA');
+
+/*
+	Output the newly inserted primary key
+*/
+INSERT INTO publisher (pub_id, name, address, city, state) OUTPUT INSERTED.pub_id VALUES(2, 'Binder and Smith', '2 2nd Ave.', 'New York', 'NY');
+INSERT INTO publisher (pub_id, name, address, city, state) OUTPUT INSERTED.pub_id VALUES(3, 'All Techo Books', '3 3rd Dr.', 'Cupertino', 'CA');
+INSERT INTO publisher (pub_id, name, address, city, state) OUTPUT INSERTED.pub_id VALUES(1, 'Sunshine Publishers', '1 1st St', 'Berkeley', 'CA');
 
 
 INSERT INTO book (isbn, title, type, pub_id, price, advance, ytd_sales, pubdate) VALUES('1-8888-8888-x', 'Silicon Valley Start-ups', 'computer', 3, 40.00, 8000.00, 4095, '12-JUN-12');
