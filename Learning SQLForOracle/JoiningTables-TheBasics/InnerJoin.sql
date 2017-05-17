@@ -9,8 +9,9 @@ on p.pub_id = b.pub_id
 where b.price > 20
 
 
---Exercise
---Code a Select statement that shows all book titles published  by Binder and Smith
+/*
+Code a Select statement that shows all book titles published  by Binder and Smith
+*/
 select b.title, p.name
 from book b 
 join publisher p
