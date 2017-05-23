@@ -1,3 +1,6 @@
+--WHERE clause comes first and then GROUP BY clause.
+--WHERE clause is before the resultset is formed. GROUP BY clause is applied on the result set. HAVING is applied after the GROUP BY groups the result set
+
 use TestDB
 GO
 
