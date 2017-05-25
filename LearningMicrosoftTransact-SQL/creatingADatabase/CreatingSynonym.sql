@@ -7,9 +7,12 @@
 
 */
 
+Use TESTDB
+GO
+
 CREATE SYNONYM EDH
-For HumanResources.EmployeeDepartmentHistory
+For [AdventureWorks2012].[HumanResources].[EmployeeDepartmentHistory]
 
 select * from EDH
 
-Drop synonym EDH
+--Drop synonym EDH
