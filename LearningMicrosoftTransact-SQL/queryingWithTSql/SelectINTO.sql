@@ -10,3 +10,8 @@
 	
 	Aspects that are not copied are - Indexes, constraints, triggers, permissions, etc...
 */
+Use AdventureWorks2012
+go
+
+select * into SelectIntoTable 
+from person.person
