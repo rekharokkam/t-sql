@@ -34,8 +34,4 @@ If there is a requirement to update EID = 2 record on Employee table lets say La
 If these 2 tables were not Normalized then second user has to wait until the first User's transaction is finalized [Commit / Rollback] and lock on the table is released.
 If there is a table which has heavy updates and inserts then it is a good idea to Normalize that table
 
-
-
-
-
 */
