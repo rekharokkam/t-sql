@@ -50,7 +50,7 @@ EXEC sp_rename 'BookWriter', 'BookWriterAuthor';
 		COmparitively slower as DAta is first copied into ROllback Space	
 */
 
---Renaming table 
+--Removing a table 
 create table KitabWriter
 (
 	book_writer_id int primary key,
