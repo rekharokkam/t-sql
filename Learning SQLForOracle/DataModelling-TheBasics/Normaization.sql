@@ -2,7 +2,7 @@
 	Normalization is performed after the ER (Entity Relation) is complete.
 	
 	When first Normalization rules are applied are applied on a table, Table is said to be in First Normal Form
-	When second Normalization rules are applied are applied on a table, Table is said to be in Second Normal Form
+	When second Normalization rules are applied are applied on a table, Table is said to be in Second Normal Form. 
 	When Third Normalization rules are applied are applied on a table, Table is said to be in Third Normal Form.
 	
 	House (house_id-PK, Address, ListingPrice, SoldPrice)
@@ -50,7 +50,7 @@
 	
 	Second Normal Form
 	------------------
-	Table must be in the first Normal Form. Every Non-Key column is fully functionally dependent on the primary Key .	
+	Table must be in the first Normal Form. Every Non-Key column is fully functionally dependent on the primary Key .	A table that is in 1st normal form and contains only a single key as the primary key is automatically in 2nd normal form.
 	http://www.1keydata.com/database-normalization/second-normal-form-2nf.php
 	
 	

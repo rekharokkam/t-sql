@@ -2,7 +2,7 @@
 	Join happens on all the columns specified in the ON condition. If One or more columns are specified in the ON condition database matches records based on these columns and returns results only in those cases where rows match in both the tables 
 	on the columns mentioned in the ON condition.
 	
-	Data types on the columns that are joining should be the same.
+	Data types of the columns that are joining should be the same.
 	
 	Refer to example in VintageLoad.txt
 */
@@ -94,7 +94,7 @@ full outer join address2 a
 on s.SID = a.SID
 
 /*
-	Cross Join - will fetch the records from both the table in the format <Left table records count> * <right table records count>
+	Cross Join - will fetch the records from both tables in the format <Left table records count> * <right table records count>
 */
 select --distinct
 s.FirstName, s.LastName, s.Address, s.city, s.State, s.zip,
