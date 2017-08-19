@@ -57,6 +57,8 @@
 	Third Normal Form
 	-----------------
 	Table must be in First and Second Normal Forms. There is no transitive functional dependency.	
+	By transitive functional dependency, we mean we have the following relationships in the table: A is functionally dependent on B, and B is functionally dependent on C. In this case, C is transitively dependent on A via B.
+	
 	http://www.1keydata.com/database-normalization/third-normal-form-3nf.php
 	
 */
