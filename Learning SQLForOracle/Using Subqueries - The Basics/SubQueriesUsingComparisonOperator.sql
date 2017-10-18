@@ -16,7 +16,7 @@ having avg (ytd_sales) >
 	(select avg (ytd_sales) from book)
 order by 1
 	
---Code a SELECT statement that shows a book title and ytd_sales for books whose ytd_sales is greater that the smallest value for zip code on the author table.  (Not useful, but fun.)
+--Code a SELECT statement that shows a book title and ytd_sales for books whose ytd_sales is greater than the smallest value for zip code on the author table.  (Not useful, but fun.)
 select title, ytd_sales from book
 where ytd_sales > (select MIN (zip) from Author)
 

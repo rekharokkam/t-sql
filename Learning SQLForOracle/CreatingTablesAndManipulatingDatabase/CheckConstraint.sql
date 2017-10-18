@@ -2,7 +2,7 @@
 	Different types of constraints are - 
 	
 	1) Datatype - Which enforces data to be of certain type 
-	2) Not Null - enfores the data to be of some value and not null
+	2) Not Null - enforces the data to be of some value and not null
 	3) Primary Key - enforces the column to be "Not Null" and every row to have a unique value in that table
 	4) Foreign Key - Enforces that the column value to be same / match with the column value of referring table
 	

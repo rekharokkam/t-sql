@@ -2,7 +2,7 @@
 	UDF functions just like the built-in aggregate functions - AVG, SUM 
 	
 	UDF behave like StoredProcedure.
-		They run the same code everytime.
+		They run the same code every time.
 		They can accept input parameters.
 		
 	UDFs differ from StoredProcedure

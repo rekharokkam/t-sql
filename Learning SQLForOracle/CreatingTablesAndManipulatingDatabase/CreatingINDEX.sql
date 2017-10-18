@@ -28,7 +28,7 @@
 	
 	1) Columns that are seldom used in WHERE clause or JOINS
 	2) Columns that have only 2-3 values like MALE/FEMALE OR RED/BLUE/WHITE
-	In these cases INdexes actuallt slow things down. 
+	In these cases INdexes actually slow things down. 
 */
 
 --UNIQUE INDEXES. Applied to make sure column values are not repeated across the table. THere can be more than 1 UNIQUE Index on the same table

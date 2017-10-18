@@ -1,5 +1,6 @@
 /*
-	Hundreds of thousands of rows then Subquery is quickest and works best. Executes inner query feeds the information to outer query and hence faster. Joins take time in these scenarios.
+	Hundreds of thousands of rows then Subquery is quickest and works best. Executes inner query and feeds the information to outer query and hence faster. 
+	Joins take time in these scenarios.
 	
 	Subquery only allows to see the columns from outer query. Joins allow to fetch columns from any Joined table. 
 	

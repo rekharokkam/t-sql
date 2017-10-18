@@ -7,7 +7,7 @@
 	
 	UNION - returns the result of all the select statements and suppresses the duplicates
 	
-	UNION ALL - returns the result of all the select statments and DOES NOT suppress the duplicates
+	UNION ALL - returns the result of all the select statements and DOES NOT suppress the duplicates
 	
 	INTERSECT - returns only rows that are common in both the SELECT Statements NO Duplicates
 	
