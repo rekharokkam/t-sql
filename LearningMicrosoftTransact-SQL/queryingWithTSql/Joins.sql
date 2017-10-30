@@ -1,6 +1,7 @@
 /*
-	Join happens on all the columns specified in the ON condition. If One or more columns are specified in the ON condition database matches records based on these columns and returns results only in those cases where rows match in both the tables 
-	on the columns mentioned in the ON condition.
+	Join happens on all the columns specified in the ON condition. 
+	If One or more columns are specified in the ON condition database matches records based on these columns and returns results 
+	only in those cases where rows match in both the tables on the columns mentioned in the ON condition.
 	
 	Data types of the columns that are joining should be the same.
 	

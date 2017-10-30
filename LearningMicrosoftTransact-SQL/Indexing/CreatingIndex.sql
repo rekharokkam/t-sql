@@ -9,7 +9,7 @@
 	Clustered
 		Determines the order in which the data will be stored in the table
 		Clustered Index on the lastName column will cause the data to be stored in LastName order in the table
-		A column on which Clustered Index is applied if used in where clause significantly increases the perfomance.
+		A column on which Clustered Index is applied if used in where clause significantly increases the performance.
 	NonClustered
 		Computer trick which provides a 'What-if' view of data within the table
 		Virtual Index database engine uses while searching for data.

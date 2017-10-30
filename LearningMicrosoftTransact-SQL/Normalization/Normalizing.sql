@@ -8,7 +8,7 @@
 	Whole lot easier to maintain
 	
 	Normalization is implemented in steps called Normal Forms
-	Moat databases are normalized up to the third form
+	Most databases are normalized up to the third form
 	Some databases are normalized up to fourth form 
 
 
@@ -30,8 +30,11 @@ Office Table - EID, Office
 				7,  Denver
 				8,  Miami
 				
-If there is a requirement to update EID = 2 record on Employee table lets say LastName, then Database applies row level lock on this record until the updates are commited OR rolledback. A second user can update the Office table row where EID = 2 simultaneously
-If these 2 tables were not Normalized then second user has to wait until the first User's transaction is finalized [Commit / Rollback] and lock on the table is released.
+If there is a requirement to update EID = 2 record on Employee table lets say LastName, 
+then Database applies row level lock on this record until the updates are commited OR rolledback. 
+A second user can update the Office table row where EID = 2 simultaneously
+If these 2 tables were not Normalized then 
+second user has to wait until the first User's transaction is finalized [Commit / Rollback] and lock on the table is released.
 If there is a table which has heavy updates and inserts then it is a good idea to Normalize that table
 
 */
