@@ -39,7 +39,8 @@ having avg (price) > 10
 and SUM (ytd_sales) > 5000
 order by type, price  
 
---Code a SELECT statement that lists the author name, the number of books they have written, and the number of books they have sold. Show authors who have sold over 5000 books.Also show authors who have written more than 1 book.
+--Code a SELECT statement that lists the author name, the number of books they have written, and the number of books they have sold. 
+--Show authors who have sold over 5000 books. Also show authors who have written more than 1 book.
 select a.lastname, a.firstname, count (ba.isbn) 'Number of Books Written', sum (b.ytd_sales) 'Total Books Sold' from Author a
 join bookauthor ba
 on ba.author_id = a.author_id
